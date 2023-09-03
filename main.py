@@ -269,7 +269,7 @@ def delete_post(post_id):
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html",is_loggined=current_user.is_authenticated)
 
 
 @app.route("/contact" ,methods=["POST","GET"])
