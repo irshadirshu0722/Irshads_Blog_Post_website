@@ -1,6 +1,6 @@
 import os
-my_email = os.environ.get("my_email")
-my_password = os.environ.get("email_password")
+my_email = os.getenv("my_email")
+my_password = os.getenv("email_password")
 
 
 
