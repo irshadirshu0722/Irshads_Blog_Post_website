@@ -18,8 +18,8 @@ import smtplib
 
 import os
 
-my_email ="irshusvlog@gmail.com" #os.getenv("my_email")
-my_password =  "ypzmgbrtmamhmqkt" #os.getenv("email_password")
+my_email = os.getenv("my_email")
+my_password =os.getenv("email_password")
 '''
 Make sure the required packages are installed: 
 Open the Terminal in PyCharm (bottom left). 
