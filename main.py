@@ -15,10 +15,11 @@ from forms import Register,Login,CommandForm
 
 from flask_gravatar import Gravatar
 import smtplib
-from Contact_details import my_password,my_email
+
 import os
 
-
+my_email = os.getenv("my_email")
+my_password = os.getenv("email_password")
 '''
 Make sure the required packages are installed: 
 Open the Terminal in PyCharm (bottom left). 
