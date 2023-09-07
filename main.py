@@ -2,20 +2,22 @@ from datetime import date
 from flask import Flask, abort, render_template, redirect, url_for, flash,request
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
+from flask_gravatar import Gravatar
 from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user,login_required
 from flask_sqlalchemy import SQLAlchemy
-from decouple import config
+
 from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.orm import relationship
 # Import your forms from the forms.py
 from forms import CreatePostForm
 from forms import Register,Login,CommandForm
+
 from flask_gravatar import Gravatar
 import smtplib
+from Contact_details import my_password,my_email
 import os
-my_email = config("my_email")
-my_password = config("email_password")
+
 
 '''
 Make sure the required packages are installed: 
@@ -55,7 +57,7 @@ def admin_only(func):
     return inner_func
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = config("SECRET_KEY")
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 
@@ -77,7 +79,7 @@ def load_user(user_id):
     return db.get_or_404(User, user_id)
 
 # CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = config("SQLALCHEMY_DATABASE_URI")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("SQLALCHEMY_DATABASE_URI")
 db = SQLAlchemy()
 db.init_app(app)
 
