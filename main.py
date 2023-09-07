@@ -16,6 +16,7 @@ import smtplib
 import os
 my_email = config("my_email")
 my_password = config("email_password")
+
 '''
 Make sure the required packages are installed: 
 Open the Terminal in PyCharm (bottom left). 
