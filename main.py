@@ -279,10 +279,11 @@ def contact():
         user_name=request.form.get("name")
         user_message=request.form.get("message")
         user_mobile = request.form.get("phone")
+        print(f" email going to send from email={my_email} , to email={my_email} , password={my_password}")
         with smtplib.SMTP("smtp.gmail.com") as connectiom:
             connectiom.starttls()
             connectiom.login(user=my_email,password=my_password)
-            connectiom.sendmail(from_addr=my_email,to_addrs=user_email,
+            connectiom.sendmail(from_addr=my_email,to_addrs=my_email,
                                 msg=f'''
 Subject: Thank You for Contacting Irshad's Blog
 
