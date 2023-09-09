@@ -18,7 +18,7 @@ import smtplib
 from Contact_details import my_password,my_email
 import os
 
-
+print(my_password,my_email)
 '''
 Make sure the required packages are installed: 
 Open the Terminal in PyCharm (bottom left). 
